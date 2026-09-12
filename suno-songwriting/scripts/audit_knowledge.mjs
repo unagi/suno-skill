@@ -24,6 +24,7 @@ export function auditKnowledge({ asOf = new Date().toISOString().slice(0, 10), s
   let musicVocabulary;
   let diagnosticRules;
   let genreArrangements;
+  let styleTradeoffs;
   try {
     sources = readJson("sources.json");
     constraints = readJson("constraints.json");
@@ -31,6 +32,7 @@ export function auditKnowledge({ asOf = new Date().toISOString().slice(0, 10), s
     musicVocabulary = readJson("music-vocabulary.json");
     diagnosticRules = readJson("prompt-diagnostic-rules.json");
     genreArrangements = readJson("genre-arrangements.json");
+    styleTradeoffs = readJson("style-tradeoffs.json");
   } catch (error) {
     return { as_of: asOf, issues: [issue("INVALID_JSON_OR_MISSING_FILE", "error", error.message)] };
   }
@@ -85,6 +87,22 @@ export function auditKnowledge({ asOf = new Date().toISOString().slice(0, 10), s
   for (const genre of genreArrangements.genres ?? []) {
     for (const sourceId of genre.evidence?.source_ids ?? []) {
       if (!sourceIds.has(sourceId)) issues.push(issue("MISSING_GENRE_SOURCE_REFERENCE", "error", `${genre.id}: ${sourceId}`));
+    }
+  }
+
+  const tradeoffIds = new Set();
+  for (const tradeoff of styleTradeoffs.tradeoffs ?? []) {
+    if (!tradeoff.id || tradeoffIds.has(tradeoff.id)) {
+      issues.push(issue("DUPLICATE_OR_EMPTY_TRADEOFF_ID", "error", `invalid tradeoff id: ${tradeoff.id ?? ""}`));
+    }
+    tradeoffIds.add(tradeoff.id);
+    for (const required of ["operation_family", "dimensions", "primary_effects", "side_effects", "confirmation_level"]) {
+      if (!tradeoff[required] || (Array.isArray(tradeoff[required]) && tradeoff[required].length === 0)) {
+        issues.push(issue("TRADEOFF_FIELD_MISSING", "error", `${tradeoff.id ?? ""}: missing ${required}`));
+      }
+    }
+    for (const sourceId of tradeoff.source_ids ?? []) {
+      if (!sourceIds.has(sourceId)) issues.push(issue("MISSING_TRADEOFF_SOURCE_REFERENCE", "error", `${tradeoff.id}: ${sourceId}`));
     }
   }
 

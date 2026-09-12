@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "knowledge_version": "2026-09-12",
+  "target_models": ["v6", "v6-wild", "v6-mini"],
+  "baseline_model": "v6",
+  "tradeoffs": [
+    {
+      "id": "thick-rhythm-guitars",
+      "operation_family": "arrangement",
+      "dimensions": ["spectral.low_mid", "density.layer", "arrangement.roles"],
+      "primary_effects": ["中低域の厚み", "コード・リフの密度", "ギター中心の推進感"],
+      "side_effects": ["ボーカルやスネアのマスキング", "ジャンルが重くなる", "ダイナミクスの余白が減る"],
+      "confirmation_level": "confirm_before_apply",
+      "source_ids": ["education.open-music-theory.texture", "education.berklee.arranging"]
+    },
+    {
+      "id": "electric-bass-foundation",
+      "operation_family": "arrangement",
+      "dimensions": ["spectral.low", "spectral.low_mid", "arrangement.roles"],
+      "primary_effects": ["低域の土台", "キックとの接着", "グルーヴの重量感"],
+      "side_effects": ["キックとのマスキング", "ベースが前に出すぎる", "低域が濁る"],
+      "confirmation_level": "confirm_before_apply",
+      "source_ids": ["education.open-music-theory.texture", "education.berklee.arranging"]
+    },
+    {
+      "id": "sub-bass-layer",
+      "operation_family": "production",
+      "dimensions": ["spectral.sub", "spectral.low", "genre_identity"],
+      "primary_effects": ["低域の重量", "現代的な底鳴り"],
+      "side_effects": ["キックとの競合", "電子的なジャンルへの移動", "ヘッドルームの減少"],
+      "confirmation_level": "confirm_before_apply",
+      "source_ids": ["education.open-music-theory.texture", "education.berklee.arranging"]
+    },
+    {
+      "id": "kick-punch",
+      "operation_family": "arrangement",
+      "dimensions": ["transient_punch", "spectral.low"],
+      "primary_effects": ["瞬発的なパンチ", "ビートの明瞭さ"],
+      "side_effects": ["持続的な低域不足は解決しない", "キックが前に出すぎる"],
+      "confirmation_level": "candidate",
+      "source_ids": ["education.open-music-theory.drumbeats", "education.open-music-theory.texture"]
+    },
+    {
+      "id": "midrange-keys-or-pad",
+      "operation_family": "arrangement",
+      "dimensions": ["spectral.mid", "density.sustain", "density.spatial"],
+      "primary_effects": ["持続的な中域", "背景の厚み", "空間の広がり"],
+      "side_effects": ["輪郭の低下", "ギターや声とのマスキング", "電子的またはポップ寄りへの移動"],
+      "confirmation_level": "confirm_before_apply",
+      "source_ids": ["education.berklee.arranging", "education.open-music-theory.texture"]
+    },
+    {
+      "id": "backing-vocal-layer",
+      "operation_family": "vocal_arrangement",
+      "dimensions": ["density.layer", "vocal_clarity", "arrangement.roles"],
+      "primary_effects": ["サビの厚み", "ハーモニーの広がり"],
+      "side_effects": ["主旋律の明瞭度低下", "親密さの低下", "合唱寄りへの変化"],
+      "confirmation_level": "confirm_before_apply",
+      "source_ids": ["education.berklee.arranging"]
+    },
+    {
+      "id": "compression-saturation-feel",
+      "operation_family": "production",
+      "dimensions": ["perceived_loudness", "dynamics", "density.sustain"],
+      "primary_effects": ["知覚上の音量", "まとまり", "持続感"],
+      "side_effects": ["ダイナミクス低下", "疲労感", "アタックの埋没"],
+      "confirmation_level": "confirm_before_apply",
+      "source_ids": ["education.berklee.arranging", "education.berklee.sidechain"]
+    }
+  ]
+}

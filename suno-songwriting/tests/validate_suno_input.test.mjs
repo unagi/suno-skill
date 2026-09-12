@@ -13,6 +13,7 @@ test("Style is within the provisional v6 limit at the boundary", () => {
     ...knowledge
   });
   assert.equal(result.limit_status, "within_limit");
+  assert.equal(result.remaining, 0);
   assert.equal(result.issues.length, 0);
 });
 
@@ -24,6 +25,7 @@ test("Lyrics over the provisional v6 limit is reported", () => {
     ...knowledge
   });
   assert.equal(result.limit_status, "over_limit");
+  assert.equal(result.remaining, -1);
   assert.ok(result.issues.some((item) => item.code === "MAX_LENGTH_EXCEEDED"));
 });
 

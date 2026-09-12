@@ -132,6 +132,7 @@ export function validateText({ field, text, profile = "v6-create", model = "v6",
     code_points: [...normalized].length,
     lines: normalized.length === 0 ? 0 : normalized.split("\n").length,
     limit,
+    remaining: limit - normalized.length,
     limit_status: normalized.length <= limit ? "within_limit" : "over_limit",
     limit_confidence: rule?.status ?? "custom",
     issues,
@@ -172,7 +173,7 @@ export function formatHuman(result) {
   const lines = [
     `Suno ${result.field} check: ${headline}`,
     `対象モデル: ${result.model} (${result.model_basis})`,
-    `文字数: ${result.characters} UTF-16 code units / Unicode code points ${result.code_points} / 暫定上限 ${result.limit}`,
+    `文字数: ${result.characters} UTF-16 code units / Unicode code points ${result.code_points} / 暫定上限 ${result.limit} / 残余 ${result.remaining}`,
     `上限の確度: ${result.limit_confidence}`
   ];
   for (const issue of result.issues) {

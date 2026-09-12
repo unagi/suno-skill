@@ -382,5 +382,41 @@
     "relevant_section": "Positive counter-report on v6 adherence",
     "claim_summary": "A contrasting community report praises v6 genre fusion and prompt response, showing that early community evaluation is mixed.",
     "model_or_surface_scope": "Early v6 community observation"
+  },
+  {
+    "source_id": "market.ifpi.engaging-with-music.2023",
+    "url": "https://www.ifpi.org/wp-content/uploads/2023/12/IFPI-Engaging-With-Music-2023_full-report.pdf",
+    "title": "IFPI Engaging With Music 2023",
+    "publisher": "IFPI",
+    "source_type": "market_research",
+    "published_at": null,
+    "accessed_at": "2026-09-12",
+    "relevant_section": "The most popular genres around the world",
+    "claim_summary": "A global survey lists Pop, Rock, Hip-Hop/Rap, Dance/Electronic, Latin, R&B, Classical/Opera, Country, Soundtracks, and Reggae among the top global genre responses, and identifies regional genres including J-rock, J-pop, K-pop, and City Pop.",
+    "model_or_surface_scope": "Global music listening context; not a Suno behavior study"
+  },
+  {
+    "source_id": "market.spotify.music-trends.2025",
+    "url": "https://newsroom.spotify.com/2025-12-03/wrapped-music-trends/",
+    "title": "These Music Trends Took 2025 in Surprising New Directions",
+    "publisher": "Spotify",
+    "source_type": "platform_editorial",
+    "published_at": "2025-12-03",
+    "accessed_at": "2026-09-12",
+    "relevant_section": "2025 genre trends and global scenes",
+    "claim_summary": "Spotify editorial coverage highlights Pop, K-pop, Country, Afrobeats, Rock, alternative pop, and trip-hop as notable 2025 trends or scenes.",
+    "model_or_surface_scope": "Spotify 2025 trends; not a Suno behavior study"
+  },
+  {
+    "source_id": "community.reddit.style-prompt-guide.2025",
+    "url": "https://www.reddit.com/r/SunoAI/comments/1n8lq6u/suno_style_prompt_guide_20/",
+    "title": "Suno Style Prompt Guide 2.0",
+    "publisher": "r/SunoAI",
+    "source_type": "community_reddit",
+    "published_at": null,
+    "accessed_at": "2026-09-12",
+    "relevant_section": "Frequent Style vocabulary and genre examples",
+    "claim_summary": "A community guide lists frequently used Suno Style vocabulary spanning Pop, Rock, Rap, Metal, Electronic, R&B, Country, Jazz, Funk, J-pop, K-pop, and related subgenres; it is not an official ranking or guarantee.",
+    "model_or_surface_scope": "Community prompt vocabulary; model and date scope not controlled"
   }
 ]

@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0",
+  "knowledge_version": "2026-09-12",
+  "target_models": ["v6", "v6-wild", "v6-mini"],
+  "baseline_model": "v6",
+  "selection_basis": "Representative global high-frequency genre families and regional/Suno-community frequent prompt families. This is a candidate prior for arrangement reasoning, not a complete genre inventory, popularity ranking, or fixed genre definition.",
+  "unknown_genre_policy": "If a genre, regional style, or fusion is not represented, research its typical instrumentation and roles before making a specific arrangement claim. Do not force it into the nearest catalog entry.",
+  "selection_source_ids": [
+    "market.ifpi.engaging-with-music.2023",
+    "market.spotify.music-trends.2025",
+    "community.reddit.style-prompt-guide.2025",
+    "official.hub.create.2026-08",
+    "education.open-music-theory.texture",
+    "education.berklee.arranging"
+  ],
+  "genres": [
+    {
+      "id": "pop",
+      "labels": { "en": ["pop", "mainstream pop"], "ja": ["ポップ", "メインストリームポップ"] },
+      "default_roles": ["lead vocal", "drums", "bass", "harmony instrument", "backing vocals"],
+      "variants": [
+        { "id": "pop-rock", "signals": ["band", "guitar", "live"], "register_focus": ["mid", "low-mid"], "roles": ["rhythm electric guitar", "bass guitar", "live drums", "lead vocal"], "style_phrases": ["hook-driven pop-rock", "present lead vocal", "melodic electric bass", "punchy live drums"], "diagnostic_use": ["midrange-thin", "thin-arrangement"] },
+        { "id": "synth-pop", "signals": ["synth", "electronic", "80s", "dance"], "register_focus": ["mid", "low"], "roles": ["synth pad", "synth lead", "electronic drums", "sub bass", "lead vocal"], "style_phrases": ["polished synth-pop", "wide analog pad", "bright synth hook", "controlled sub bass"], "diagnostic_use": ["thin-mid", "thin-low-end"] }
+      ],
+      "evidence": { "status": "provisional_synthesis", "source_ids": ["market.ifpi.engaging-with-music.2023", "official.hub.create.2026-08", "education.berklee.arranging"] }
+    },
+    {
+      "id": "rock",
+      "labels": { "en": ["rock", "J-rock"], "ja": ["ロック", "J-Rock"] },
+      "default_roles": ["rhythm electric guitar", "bass guitar", "drum kit", "lead vocal"],
+      "variants": [
+        { "id": "guitar-forward", "signals": ["guitar-driven", "riff", "power chords"], "register_focus": ["mid", "low-mid"], "roles": ["overdriven rhythm guitars", "electric bass", "punchy snare", "live drums"], "style_phrases": ["guitar-driven rock", "dense rhythm guitar body", "articulate overdriven riff", "punchy live drums"], "diagnostic_use": ["midrange-thin", "thin-arrangement"] },
+        { "id": "modern-rock", "signals": ["modern", "alternative", "electronic", "polished"], "register_focus": ["mid", "low"], "roles": ["distorted guitars", "electric bass", "live drums", "synth texture"], "style_phrases": ["modern alternative rock", "thick low-mid guitars", "clearly audible electric bass", "subtle synth texture"], "diagnostic_use": ["thin-mid", "thin-low-end"] },
+        { "id": "j-rock-anthemic", "signals": ["J-rock", "anthemic", "anime", "dramatic"], "register_focus": ["mid", "high-mid"], "roles": ["bright electric guitars", "lead vocal", "punchy snare", "bass guitar", "backing vocal layers"], "style_phrases": ["anthemic J-rock", "bright but mid-forward guitars", "forward expressive lead vocal", "layered chorus backing vocals"], "diagnostic_use": ["midrange-thin", "vocal-buried"] }
+      ],
+      "evidence": { "status": "provisional_synthesis", "source_ids": ["market.ifpi.engaging-with-music.2023", "official.hub.create.2026-08", "education.open-music-theory.texture", "education.berklee.arranging"] }
+    },
+    {
+      "id": "hip-hop-rap",
+      "labels": { "en": ["hip-hop", "rap", "trap"], "ja": ["ヒップホップ", "ラップ", "トラップ"] },
+      "default_roles": ["drum machine or sampled drums", "bass or 808", "rap vocal", "sample or keys"],
+      "variants": [
+        { "id": "boom-bap", "signals": ["boom bap", "90s", "sampled", "old school"], "register_focus": ["mid", "low-mid"], "roles": ["kick and snare", "sampled piano or soul chop", "bass", "rap vocal"], "style_phrases": ["crisp boom-bap drums", "snare-forward groove", "warm sampled piano chop", "clearly articulated rap vocal"], "diagnostic_use": ["midrange-thin", "thin-groove"] },
+        { "id": "trap", "signals": ["trap", "808", "hi-hats", "dark"], "register_focus": ["low", "high"], "roles": ["808 sub bass", "deep kick", "rapid hi-hats", "dark synth or bell lead", "rap vocal"], "style_phrases": ["controlled 808 sub bass", "deep kick", "rapid trap hi-hats", "dark sparse synth lead"], "diagnostic_use": ["thin-low-end", "thin-high-end"] }
+      ],
+      "evidence": { "status": "provisional_synthesis", "source_ids": ["market.ifpi.engaging-with-music.2023", "community.reddit.style-prompt-guide.2025", "education.open-music-theory.texture"] }
+    },
+    {
+      "id": "rnb-soul",
+      "labels": { "en": ["R&B", "soul", "neo-soul"], "ja": ["R&B", "ソウル", "ネオソウル"] },
+      "default_roles": ["lead vocal", "bass", "drums", "electric piano or keys", "guitar or pad"],
+      "variants": [
+        { "id": "neo-soul", "signals": ["neo-soul", "warm", "laid-back", "groove"], "register_focus": ["mid", "low-mid"], "roles": ["electric piano", "melodic bass", "laid-back drums", "clean guitar", "lead vocal"], "style_phrases": ["warm neo-soul", "rich electric piano chords", "melodic pocket bass", "laid-back live drums"], "diagnostic_use": ["midrange-thin", "thin-groove"] },
+        { "id": "modern-rnb", "signals": ["contemporary R&B", "smooth", "ambient", "808"], "register_focus": ["low", "mid"], "roles": ["sub bass", "soft electronic drums", "synth pad", "lead and backing vocals"], "style_phrases": ["smooth contemporary R&B", "deep controlled sub bass", "lush synth pad", "layered vocal harmonies"], "diagnostic_use": ["thin-low-end", "vocal-thin"] }
+      ],
+      "evidence": { "status": "provisional_synthesis", "source_ids": ["market.ifpi.engaging-with-music.2023", "community.reddit.style-prompt-guide.2025", "education.berklee.arranging"] }
+    },
+    {
+      "id": "dance-electronic",
+      "labels": { "en": ["EDM", "house", "techno", "trance", "drum and bass"], "ja": ["EDM", "ハウス", "テクノ", "トランス", "ドラムンベース"] },
+      "default_roles": ["four-on-the-floor or breakbeat drums", "bass or sub bass", "synth chord", "synth lead", "optional vocal"],
+      "variants": [
+        { "id": "house", "signals": ["house", "four-on-the-floor", "club", "disco"], "register_focus": ["low", "mid"], "roles": ["four-on-the-floor kick", "bass groove", "synth or piano chords", "percussion", "optional vocal"], "style_phrases": ["steady four-on-the-floor kick", "grooving bassline", "bright piano or synth chords", "club-ready percussion"], "diagnostic_use": ["thin-low-end", "thin-groove"] },
+        { "id": "techno-trance", "signals": ["techno", "trance", "driving", "hypnotic"], "register_focus": ["low", "mid-high"], "roles": ["kick", "rolling bass", "sequenced synth", "pad", "risers or transitions"], "style_phrases": ["driving four-on-the-floor techno", "rolling bass sequence", "hypnotic arpeggiated synth", "wide evolving pad"], "diagnostic_use": ["thin-low-end", "thin-texture"] },
+        { "id": "drum-and-bass", "signals": ["drum and bass", "DnB", "breakbeat", "jungle"], "register_focus": ["low", "high"], "roles": ["breakbeat drums", "deep sub bass", "synth texture", "optional vocal"], "style_phrases": ["rapid syncopated breakbeats", "deep clean sub bass", "glitchy percussive texture"], "diagnostic_use": ["thin-low-end", "thin-rhythm"] }
+      ],
+      "evidence": { "status": "provisional_synthesis", "source_ids": ["market.ifpi.engaging-with-music.2023", "community.reddit.style-prompt-guide.2025", "education.open-music-theory.drumbeats"] }
+    },
+    {
+      "id": "latin-afrobeats",
+      "labels": { "en": ["Latin pop", "reggaeton", "Afrobeats", "Amapiano"], "ja": ["ラテンポップ", "レゲトン", "アフロビーツ", "アマピアノ"] },
+      "default_roles": ["syncopated percussion", "bass", "guitar or keys", "lead vocal", "backing vocal"],
+      "variants": [
+        { "id": "reggaeton", "signals": ["reggaeton", "dembow", "Latin urban"], "register_focus": ["low", "mid"], "roles": ["dembow drums", "sub bass", "percussion", "synth or guitar stabs", "vocal"], "style_phrases": ["syncopated dembow groove", "tight kick and snare", "deep controlled sub bass", "percussive synth stabs"], "diagnostic_use": ["thin-low-end", "thin-groove"] },
+        { "id": "afrobeats", "signals": ["Afrobeats", "West African", "Amapiano", "percussive"], "register_focus": ["low-mid", "mid"], "roles": ["layered percussion", "rolling bass", "clean guitar or keys", "lead vocal", "backing vocal"], "style_phrases": ["layered syncopated percussion", "rolling melodic bass", "clean guitar accents", "warm call-and-response vocals"], "diagnostic_use": ["thin-groove", "vocal-thin"] }
+      ],
+      "evidence": { "status": "provisional_synthesis", "source_ids": ["market.ifpi.engaging-with-music.2023", "market.spotify.music-trends.2025", "education.open-music-theory.texture"] }
+    },
+    {
+      "id": "folk-country",
+      "labels": { "en": ["folk", "acoustic", "country", "country rock"], "ja": ["フォーク", "アコースティック", "カントリー"] },
+      "default_roles": ["acoustic guitar", "bass", "light drums or percussion", "lead vocal", "optional fiddle or banjo"],
+      "variants": [
+        { "id": "singer-songwriter", "signals": ["singer-songwriter", "acoustic", "intimate", "folk"], "register_focus": ["mid", "low-mid"], "roles": ["fingerstyle or strummed acoustic guitar", "light percussion", "intimate lead vocal", "upright or soft bass"], "style_phrases": ["intimate fingerstyle acoustic guitar", "warm natural lead vocal", "subtle brushed percussion", "gentle upright bass"], "diagnostic_use": ["thin-mid", "thin-arrangement"] },
+        { "id": "country-rock", "signals": ["country rock", "roots rock", "Americana", "driving"], "register_focus": ["mid", "low-mid"], "roles": ["electric and acoustic guitars", "bass", "live drums", "fiddle or pedal steel", "lead vocal"], "style_phrases": ["driving country-rock band", "twangy electric guitar", "steady live drums", "melodic bass and fiddle accents"], "diagnostic_use": ["thin-mid", "thin-arrangement"] }
+      ],
+      "evidence": { "status": "provisional_synthesis", "source_ids": ["market.ifpi.engaging-with-music.2023", "market.spotify.music-trends.2025", "education.yamaha.instrument-guide"] }
+    },
+    {
+      "id": "jazz-blues-funk",
+      "labels": { "en": ["jazz", "blues", "funk", "disco"], "ja": ["ジャズ", "ブルース", "ファンク", "ディスコ"] },
+      "default_roles": ["bass", "drums", "keys or piano", "guitar", "horn or lead instrument"],
+      "variants": [
+        { "id": "jazz-combo", "signals": ["jazz", "swing", "bebop", "combo"], "register_focus": ["mid", "low-mid"], "roles": ["upright or electric bass", "drums with ride", "piano", "saxophone or trumpet", "optional guitar"], "style_phrases": ["acoustic jazz combo", "walking upright bass", "responsive ride cymbal drums", "warm piano voicings", "expressive saxophone lead"], "diagnostic_use": ["thin-mid", "thin-groove"] },
+        { "id": "funk-disco", "signals": ["funk", "disco", "groovy", "brass"], "register_focus": ["low-mid", "mid"], "roles": ["syncopated bass guitar", "tight drums", "rhythm guitar", "electric piano", "brass section"], "style_phrases": ["syncopated slap or fingerstyle bass", "tight funk drums", "choppy rhythm guitar", "bright horn stabs"], "diagnostic_use": ["thin-groove", "thin-mid"] }
+      ],
+      "evidence": { "status": "provisional_synthesis", "source_ids": ["market.ifpi.engaging-with-music.2023", "community.reddit.style-prompt-guide.2025", "education.open-music-theory.texture", "education.berklee.arranging"] }
+    },
+    {
+      "id": "metal-hardcore",
+      "labels": { "en": ["metal", "hard rock", "metalcore", "nu metal"], "ja": ["メタル", "ハードロック", "メタルコア", "ニューメタル"] },
+      "default_roles": ["distorted guitars", "bass", "drums with kick emphasis", "clean or harsh vocal"],
+      "variants": [
+        { "id": "classic-metal", "signals": ["heavy metal", "classic metal", "guitar solo"], "register_focus": ["mid", "low-mid"], "roles": ["layered distorted guitars", "bass guitar", "punchy kick and snare", "lead guitar", "lead vocal"], "style_phrases": ["layered heavy-metal guitars", "clear melodic lead guitar", "punchy live drums", "powerful but defined bass"], "diagnostic_use": ["thin-mid", "thin-low-end"] },
+        { "id": "metalcore-nu-metal", "signals": ["metalcore", "breakdown", "nu metal", "industrial"], "register_focus": ["low", "mid"], "roles": ["low-tuned guitars", "bass or sub bass", "breakdown drums", "harsh and clean vocals", "electronic texture"], "style_phrases": ["low-tuned syncopated guitars", "impactful breakdown drums", "controlled sub bass", "contrasting harsh and clean vocals"], "diagnostic_use": ["thin-low-end", "thin-arrangement"] }
+      ],
+      "evidence": { "status": "provisional_synthesis", "source_ids": ["market.ifpi.engaging-with-music.2023", "community.reddit.style-prompt-guide.2025", "education.fender.palm-mute", "education.open-music-theory.texture"] }
+    },
+    {
+      "id": "classical-cinematic",
+      "labels": { "en": ["classical", "orchestral", "cinematic", "soundtrack"], "ja": ["クラシック", "オーケストラ", "シネマティック", "サウンドトラック"] },
+      "default_roles": ["strings", "brass", "woodwinds", "percussion", "piano or choir"],
+      "variants": [
+        { "id": "orchestral", "signals": ["orchestral", "symphonic", "classical", "concert"], "register_focus": ["low", "mid", "high"], "roles": ["string section", "brass", "woodwinds", "timpani and orchestral percussion"], "style_phrases": ["sweeping legato strings", "expressive French horns", "dramatic orchestral percussion", "clear woodwind countermelodies"], "diagnostic_use": ["thin-arrangement", "thin-mid"] },
+        { "id": "hybrid-cinematic", "signals": ["cinematic", "trailer", "hybrid", "epic"], "register_focus": ["low", "mid"], "roles": ["strings", "brass or braams", "hybrid percussion", "synth pad or sub", "choir"], "style_phrases": ["hybrid cinematic strings and brass", "powerful low orchestral percussion", "wide synth pad", "layered cinematic choir"], "diagnostic_use": ["thin-low-end", "thin-texture"] }
+      ],
+      "evidence": { "status": "provisional_synthesis", "source_ids": ["market.ifpi.engaging-with-music.2023", "official.hub.create.2026-08", "education.yamaha.instrument-guide", "education.berklee.arranging"] }
+    },
+    {
+      "id": "indie-alternative",
+      "labels": { "en": ["indie", "alternative", "dream pop", "shoegaze"], "ja": ["インディー", "オルタナティブ", "ドリームポップ", "シューゲイズ"] },
+      "default_roles": ["guitar or keys", "bass", "drums", "distinctive lead vocal", "texture layer"],
+      "variants": [
+        { "id": "indie-rock", "signals": ["indie rock", "alternative rock", "post-punk"], "register_focus": ["mid", "low-mid"], "roles": ["characterful electric guitar", "bass", "live drums", "distinctive lead vocal"], "style_phrases": ["characterful indie-rock guitars", "melodic bass movement", "dry punchy live drums", "intimate distinctive lead vocal"], "diagnostic_use": ["thin-mid", "thin-arrangement"] },
+        { "id": "dream-pop-shoegaze", "signals": ["dream pop", "shoegaze", "ethereal", "washed"], "register_focus": ["mid", "high-mid"], "roles": ["layered reverberant guitars", "bass", "soft drums", "hazy vocal", "synth pad"], "style_phrases": ["layered shoegaze guitars", "lush reverb texture", "soft but solid bass foundation", "hazy intimate vocal"], "diagnostic_use": ["thin-texture", "vocal-buried"] }
+      ],
+      "evidence": { "status": "provisional_synthesis", "source_ids": ["market.spotify.music-trends.2025", "community.reddit.style-prompt-guide.2025", "education.open-music-theory.texture"] }
+    },
+    {
+      "id": "jpop-kpop-citypop",
+      "labels": { "en": ["J-pop", "K-pop", "city pop", "anisong"], "ja": ["J-POP", "K-POP", "シティポップ", "アニソン"] },
+      "default_roles": ["lead vocal", "synth or keys", "bass", "drums", "guitar", "backing vocals"],
+      "variants": [
+        { "id": "jpop-anisong", "signals": ["J-pop", "anisong", "anime", "bright"], "register_focus": ["mid", "high-mid"], "roles": ["bright synth or piano", "electric guitars", "bass", "live drums", "lead and backing vocals"], "style_phrases": ["bright dramatic J-pop", "piano and electric guitar hooks", "driving live drums", "layered chorus harmonies"], "diagnostic_use": ["thin-mid", "vocal-thin"] },
+        { "id": "kpop-dance", "signals": ["K-pop", "idol", "dance", "rap", "performance"], "register_focus": ["low", "mid-high"], "roles": ["synth lead", "dance drums", "sub bass", "rap and lead vocals", "layered backing vocals"], "style_phrases": ["polished K-pop dance production", "hooky synth lead", "controlled sub bass", "contrasting rap and melodic lead vocals"], "diagnostic_use": ["thin-low-end", "vocal-thin"] },
+        { "id": "city-pop", "signals": ["city pop", "80s Japanese", "funky", "night drive"], "register_focus": ["low-mid", "mid"], "roles": ["electric piano", "clean guitar", "bass", "tight drums", "synth and horn accents"], "style_phrases": ["sleek Japanese city pop", "electric piano chords", "melodic electric bass", "clean funk guitar", "tasteful horn accents"], "diagnostic_use": ["thin-mid", "thin-groove"] }
+      ],
+      "evidence": { "status": "provisional_synthesis", "source_ids": ["market.ifpi.engaging-with-music.2023", "market.spotify.music-trends.2025", "community.reddit.style-prompt-guide.2025", "education.berklee.arranging"] }
+    }
+  ]
+}

@@ -23,12 +23,14 @@ export function auditKnowledge({ asOf = new Date().toISOString().slice(0, 10), s
   let tagCatalog;
   let musicVocabulary;
   let diagnosticRules;
+  let genreArrangements;
   try {
     sources = readJson("sources.json");
     constraints = readJson("constraints.json");
     tagCatalog = readJson("tag-catalog.json");
     musicVocabulary = readJson("music-vocabulary.json");
     diagnosticRules = readJson("prompt-diagnostic-rules.json");
+    genreArrangements = readJson("genre-arrangements.json");
   } catch (error) {
     return { as_of: asOf, issues: [issue("INVALID_JSON_OR_MISSING_FILE", "error", error.message)] };
   }
@@ -74,6 +76,15 @@ export function auditKnowledge({ asOf = new Date().toISOString().slice(0, 10), s
   for (const rule of diagnosticRules.rules ?? []) {
     for (const sourceId of rule.source_ids ?? []) {
       if (!sourceIds.has(sourceId)) issues.push(issue("MISSING_DIAGNOSTIC_SOURCE_REFERENCE", "error", `${rule.id}: ${sourceId}`));
+    }
+  }
+
+  for (const sourceId of genreArrangements.selection_source_ids ?? []) {
+    if (!sourceIds.has(sourceId)) issues.push(issue("MISSING_GENRE_SELECTION_SOURCE_REFERENCE", "error", `selection: ${sourceId}`));
+  }
+  for (const genre of genreArrangements.genres ?? []) {
+    for (const sourceId of genre.evidence?.source_ids ?? []) {
+      if (!sourceIds.has(sourceId)) issues.push(issue("MISSING_GENRE_SOURCE_REFERENCE", "error", `${genre.id}: ${sourceId}`));
     }
   }
 

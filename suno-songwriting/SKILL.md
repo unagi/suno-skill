@@ -15,6 +15,7 @@ Suno v6系（`v6`、`v6-wild`、`v6-mini`）のCustom/Create入力向けに、St
 - Lyricsの権利、他人の歌詞、公開・収益化に関する確認が必要なときは、[references/policies.md](references/policies.md) を読む。
 - 楽器、奏法、音色、編曲語彙を意図へ変換するときは、[references/music-vocabulary.md](references/music-vocabulary.md) と [references/music-vocabulary.json](references/music-vocabulary.json) を読む。
 - Sunoが指示を守らない、意図と違う音になる、タグを無視する、といった相談では、[references/prompt-adherence.md](references/prompt-adherence.md) と [references/prompt-diagnostic-rules.json](references/prompt-diagnostic-rules.json) を読む。
+- 音域の不足・過多や音の薄さを相談されたが編成が不明なときは、[references/genre-arrangements.md](references/genre-arrangements.md) と [references/arrangement-diagnosis.md](references/arrangement-diagnosis.md) を読み、複数の編成仮説を提示してからStyleを確定する。未収載ジャンルや細分化されたジャンルは、近いジャンルで決め打ちせず、必要な範囲を調査する。
 - 機械可読の文字数ルールは [references/constraints.json](references/constraints.json)、タグの分類は [references/tag-catalog.json](references/tag-catalog.json) を正本とする。
 
 ## 基本ワークフロー
@@ -23,9 +24,10 @@ Suno v6系（`v6`、`v6-wild`、`v6-mini`）のCustom/Create入力向けに、St
 2. モデルが不明なら `v6`を基準に仮定し、その仮定を回答に明記する。v6-wild/mini専用の根拠がない場合はv6知識を継承し、差分未確認と表示する。v5.5、V4.5、Song Details編集画面などの情報は、v6系の仕様ではなく暫定参考としてのみ使う。
 3. 貼り付け用の完成案を提示する。説明文と貼り付ける本文を分け、ユーザーがそのままコピーできる形にする。
 4. 楽器や奏法の要望は、楽器名だけでなく `instrument + action/technique + role` の形へ変換する。主役の楽器は1〜2個から始め、必要な補助要素だけ追加する。
-5. 指示違反の相談では、モデル・設定・Style/Lyricsの責務・競合・生成結果を分離して診断する。実際の音声結果は自動合否にせず、試聴確認と再生成・局所修正の手順を返す。
-6. 保存済みの知識から主張を組み立て、公式文書・公式記事・教育資料・コミュニティ観測を混同しない。公式に確認できない内容は「暫定」「観測」「要確認」と表示する。
-7. 作成・修正後は、次のvalidatorを実行して文字数とLyricsの括弧タグを確認する。
+5. 指示違反の相談では、症状に応じて切り分けの深さを変える。まず生成後の症状に対する有益な改善案を示し、入力確認だけで回答を終えない。一方で、すべてのLyricsやタグを妥当と仮定しない。冒頭指定のように確認条件が明快なものは短く確認し、一般のタグは該当タグだけを公式・観測cue・未知・配置不備の観点で確認する。
+6. 音域や音の厚みの症状は、埋めればよい楽器が一意とは限らない。編成が不明なら、ギター中心、ベース/ドラム中心、ボーカル/鍵盤中心、シンセ補強など2〜4個の候補を、狙い・Style断片・向いているケース付きで提示し、ユーザーに近いものまたは「その他」を選んでもらってから最終Styleを作る。
+7. 保存済みの知識から主張を組み立て、公式文書・公式記事・教育資料・コミュニティ観測を混同しない。公式に確認できない内容は「暫定」「観測」「要確認」と表示する。
+8. 作成・修正後は、次のvalidatorを実行して文字数とLyricsの括弧タグを確認する。
 
 ```powershell
 node .\suno-songwriting\scripts\check_suno_input.mjs --field style --file .\style.txt --profile v6-create

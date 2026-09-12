@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "knowledge_version": "2026-09-12",
+  "target_models": ["v6", "v6-wild", "v6-mini"],
+  "baseline_model": "v6",
+  "documented": [
+    { "canonical_name": "Verse", "syntax": "[Verse]", "category": "structure", "support_status": "official_legacy_reference_for_v6", "source_ids": ["official.hub.create.2026-08", "official.release.lyrics.2026-07"] },
+    { "canonical_name": "Chorus", "syntax": "[Chorus]", "category": "structure", "support_status": "official_legacy_reference_for_v6", "source_ids": ["official.hub.create.2026-08"] },
+    { "canonical_name": "Bridge", "syntax": "[Bridge]", "category": "structure", "support_status": "official_legacy_reference_for_v6", "source_ids": ["official.hub.create.2026-08"] },
+    { "canonical_name": "Outro", "syntax": "[Outro]", "category": "structure", "support_status": "official_legacy_reference_for_v6", "source_ids": ["official.release.lyrics.2026-07"] }
+  ],
+  "community_observed": [
+    "Intro", "Pre-Chorus", "Post-Chorus", "Hook", "Refrain", "Interlude", "Instrumental Break", "Solo", "Breakdown", "Build", "Drop", "Verse 1", "Final Chorus"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "knowledge_version": "2026-09-12",
+  "reviewed_at": "2026-09-12",
+  "target_models": ["v6", "v6-wild", "v6-mini"],
+  "baseline_model": "v6",
+  "rules": [
+    {
+      "id": "style.create.v6.max_chars",
+      "target": "style",
+      "check_type": "max_length",
+      "status": "provisional",
+      "severity": "warning",
+      "parameters": { "max": 1000 },
+      "count_method": "utf16-code-units-after-newline-normalization",
+      "scope": "Suno v6-family Custom/Create Style input; v6 is the baseline and wild/mini differences are unverified; threshold is borrowed from older community reports",
+      "source_ids": ["official.help.v6.whats-new", "community.reddit.limits.2026-06"],
+      "verified_at": "2026-09-12",
+      "review_by": "2026-10-12"
+    },
+    {
+      "id": "lyrics.create.v6.max_chars",
+      "target": "lyrics",
+      "check_type": "max_length",
+      "status": "provisional",
+      "severity": "warning",
+      "parameters": { "max": 5000 },
+      "count_method": "utf16-code-units-after-newline-normalization",
+      "scope": "Suno v6-family Custom/Create Lyrics input; v6 is the baseline and wild/mini differences are unverified; threshold is borrowed from older community reports",
+      "source_ids": ["official.help.v6.whats-new", "community.reddit.limits.2026-06", "community.reddit.guide.2025"],
+      "verified_at": "2026-09-12",
+      "review_by": "2026-10-12"
+    }
+  ]
+}

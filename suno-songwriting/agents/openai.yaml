@@ -1,0 +1,7 @@
+interface:
+  display_name: "Suno Songwriting"
+  short_description: "Draft and validate Suno Style and Lyrics"
+  default_prompt: "Use $suno-songwriting to draft Suno-ready Style or Lyrics and validate the input limits."
+
+policy:
+  allow_implicit_invocation: true

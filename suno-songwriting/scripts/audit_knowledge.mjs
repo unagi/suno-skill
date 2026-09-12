@@ -21,10 +21,14 @@ export function auditKnowledge({ asOf = new Date().toISOString().slice(0, 10), s
   let sources;
   let constraints;
   let tagCatalog;
+  let musicVocabulary;
+  let diagnosticRules;
   try {
     sources = readJson("sources.json");
     constraints = readJson("constraints.json");
     tagCatalog = readJson("tag-catalog.json");
+    musicVocabulary = readJson("music-vocabulary.json");
+    diagnosticRules = readJson("prompt-diagnostic-rules.json");
   } catch (error) {
     return { as_of: asOf, issues: [issue("INVALID_JSON_OR_MISSING_FILE", "error", error.message)] };
   }
@@ -58,6 +62,18 @@ export function auditKnowledge({ asOf = new Date().toISOString().slice(0, 10), s
   for (const tag of tagCatalog.documented ?? []) {
     for (const sourceId of tag.source_ids ?? []) {
       if (!sourceIds.has(sourceId)) issues.push(issue("MISSING_TAG_SOURCE_REFERENCE", "error", `${tag.syntax}: ${sourceId}`));
+    }
+  }
+
+  for (const entry of musicVocabulary.entries ?? []) {
+    for (const sourceId of entry.evidence?.source_ids ?? []) {
+      if (!sourceIds.has(sourceId)) issues.push(issue("MISSING_VOCABULARY_SOURCE_REFERENCE", "error", `${entry.id}: ${sourceId}`));
+    }
+  }
+
+  for (const rule of diagnosticRules.rules ?? []) {
+    for (const sourceId of rule.source_ids ?? []) {
+      if (!sourceIds.has(sourceId)) issues.push(issue("MISSING_DIAGNOSTIC_SOURCE_REFERENCE", "error", `${rule.id}: ${sourceId}`));
     }
   }
 

@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "knowledge_version": "2026-09-12",
+  "target_models": ["v6", "v6-wild", "v6-mini"],
+  "baseline_model": "v6",
+  "entries": [
+    {
+      "id": "rhythm.drumkit.backbeat",
+      "kind": "instrument_role",
+      "families": ["drums", "rhythm"],
+      "labels": { "en": ["drum kit", "backbeat"], "ja": ["ドラムキット", "バックビート"] },
+      "music_semantics": { "meaning": "キック、スネア、ハイハット等で拍を支え、backbeatは主に2・4拍を強調する", "audible_effect": ["拍の安定", "推進感"], "roles": ["foundation", "groove"] },
+      "prompting": { "style_phrases": ["tight drum kit, punchy kick, snare backbeat"], "lyrics_cues": [{ "text": "[full drums enter]", "status": "observed", "not_official_command": true }], "preferred_scope": "style_global_or_section_local" },
+      "evidence": { "music_semantics_status": "documented", "suno_prompt_effect_status": "provisional", "baseline_model": "v6", "variant_difference": "unverified", "source_ids": ["education.open-music-theory.drumbeats", "official.hub.create.2026-08"] }
+    },
+    {
+      "id": "rhythm.four-on-floor",
+      "kind": "rhythmic_pattern",
+      "families": ["drums", "dance"],
+      "labels": { "en": ["four-on-the-floor"], "ja": ["四つ打ち"] },
+      "music_semantics": { "meaning": "キックを四分音符ごとに置く安定したダンス系パターン", "audible_effect": ["一定の脈動", "踊りやすい推進感"], "roles": ["groove", "foundation"] },
+      "prompting": { "style_phrases": ["four-on-the-floor kick, steady dance groove"], "lyrics_cues": [{ "text": "[four-on-the-floor]", "status": "observed", "not_official_command": true }], "preferred_scope": "style_global" },
+      "evidence": { "music_semantics_status": "documented", "suno_prompt_effect_status": "provisional", "baseline_model": "v6", "variant_difference": "unverified", "source_ids": ["education.open-music-theory.drumbeats", "official.hub.create.2026-08"] }
+    },
+    {
+      "id": "percussion.brushed-drums",
+      "kind": "instrument_role",
+      "families": ["percussion", "drums"],
+      "labels": { "en": ["brushes", "shaker"], "ja": ["ブラシ", "シェイカー"] },
+      "music_semantics": { "meaning": "ブラシは摩擦的で柔らかく、shakerは細かい連続パルスを作る", "audible_effect": ["柔らかいアタック", "細かな揺れ"], "roles": ["texture", "groove"] },
+      "prompting": { "style_phrases": ["brushed drums, subtle shaker percussion"], "lyrics_cues": [{ "text": "[brushed drums, sparse]", "status": "observed", "not_official_command": true }], "preferred_scope": "style_global_or_section_local" },
+      "evidence": { "music_semantics_status": "documented", "suno_prompt_effect_status": "provisional", "baseline_model": "v6", "variant_difference": "unverified", "source_ids": ["education.yamaha.instrument-guide", "official.hub.create.2026-08"] }
+    },
+    {
+      "id": "bass.electric-sub-808",
+      "kind": "instrument_role",
+      "families": ["bass", "electronic"],
+      "labels": { "en": ["electric bass", "sub bass", "808"], "ja": ["ベース", "サブベース", "808"] },
+      "music_semantics": { "meaning": "低域の基礎を担い、コード進行やキックと結び付く。808は長い低音と電子的質感を指すことが多い", "audible_effect": ["低域の重量", "グルーヴの接着"], "roles": ["foundation", "groove"] },
+      "prompting": { "style_phrases": ["melodic electric bass, deep sub bass, controlled 808"], "lyrics_cues": [], "preferred_scope": "style_global" },
+      "evidence": { "music_semantics_status": "documented", "suno_prompt_effect_status": "provisional", "baseline_model": "v6", "variant_difference": "unverified", "source_ids": ["education.open-music-theory.texture", "official.hub.create.2026-08"] }
+    },
+    {
+      "id": "guitar.palm-mute",
+      "kind": "technique",
+      "families": ["guitar", "string"],
+      "labels": { "en": ["palm mute", "palm-muted"], "ja": ["パームミュート"] },
+      "music_semantics": { "meaning": "弦を手のひらで軽く止め、短く低く歯切れのある音にする", "audible_effect": ["短いサステイン", "パーカッシブなリフ"], "roles": ["rhythmic", "texture"] },
+      "prompting": { "style_phrases": ["palm-muted electric guitar, tight muted riff"], "lyrics_cues": [{ "text": "[palm-muted riff]", "status": "observed", "not_official_command": true }], "preferred_scope": "style_global_or_section_local" },
+      "evidence": { "music_semantics_status": "documented", "suno_prompt_effect_status": "provisional", "baseline_model": "v6", "variant_difference": "unverified", "source_ids": ["education.fender.palm-mute", "official.hub.create.2026-08"] }
+    },
+    {
+      "id": "guitar.fingerstyle",
+      "kind": "technique",
+      "families": ["guitar", "string"],
+      "labels": { "en": ["fingerstyle", "fingerpicked"], "ja": ["フィンガースタイル", "フィンガーピッキング"] },
+      "music_semantics": { "meaning": "指で複数弦を独立して弾き、低音・伴奏・旋律を同時に担う", "audible_effect": ["分離した弦のアタック", "親密な細部"], "roles": ["texture", "accompaniment"] },
+      "prompting": { "style_phrases": ["fingerstyle acoustic guitar, intimate picked detail"], "lyrics_cues": [{ "text": "[fingerpicked guitar]", "status": "observed", "not_official_command": true }], "preferred_scope": "style_global_or_section_local" },
+      "evidence": { "music_semantics_status": "documented", "suno_prompt_effect_status": "provisional", "baseline_model": "v6", "variant_difference": "unverified", "source_ids": ["education.yamaha.midi-arranging", "official.hub.create.2026-08"] }
+    },
+    {
+      "id": "harmony.arpeggio",
+      "kind": "technique",
+      "families": ["guitar", "piano", "synth"],
+      "labels": { "en": ["arpeggio", "arpeggiated"], "ja": ["アルペジオ"] },
+      "music_semantics": { "meaning": "和音を同時に鳴らさず、構成音を順番に鳴らす", "audible_effect": ["分散した動き", "きらめき"], "roles": ["pattern", "accompaniment"] },
+      "prompting": { "style_phrases": ["sparkling arpeggiated guitar, repeating synth arpeggio"], "lyrics_cues": [{ "text": "[arpeggiated synth]", "status": "observed", "not_official_command": true }], "preferred_scope": "style_global_or_section_local" },
+      "evidence": { "music_semantics_status": "documented", "suno_prompt_effect_status": "provisional", "baseline_model": "v6", "variant_difference": "unverified", "source_ids": ["education.ableton.arpeggiator", "official.hub.create.2026-08"] }
+    },
+    {
+      "id": "pattern.ostinato",
+      "kind": "compositional_device",
+      "families": ["piano", "bass", "strings", "synth"],
+      "labels": { "en": ["ostinato"], "ja": ["オスティナート"] },
+      "music_semantics": { "meaning": "短い旋律・リズムを繰り返し、土台や緊張感を作る", "audible_effect": ["反復による一貫性", "推進または緊張"], "roles": ["foundation", "pattern"] },
+      "prompting": { "style_phrases": ["repeating piano ostinato, driving bass ostinato"], "lyrics_cues": [{ "text": "[repeating ostinato]", "status": "observed", "not_official_command": true }], "preferred_scope": "style_global_or_section_local" },
+      "evidence": { "music_semantics_status": "documented", "suno_prompt_effect_status": "provisional", "baseline_model": "v6", "variant_difference": "unverified", "source_ids": ["education.berklee.arranging", "official.hub.create.2026-08"] }
+    },
+    {
+      "id": "articulation.legato-staccato",
+      "kind": "articulation",
+      "families": ["strings", "woodwinds", "brass", "voice"],
+      "labels": { "en": ["legato", "staccato"], "ja": ["レガート", "スタッカート"] },
+      "music_semantics": { "meaning": "legatoは音を滑らかにつなぎ、staccatoは短く分離して演奏する", "audible_effect": ["連続感", "分離感"], "roles": ["expression", "texture"] },
+      "prompting": { "style_phrases": ["legato string pads", "staccato string hits"], "lyrics_cues": [{ "text": "[legato strings]", "status": "observed", "not_official_command": true }], "preferred_scope": "style_global_or_section_local" },
+      "evidence": { "music_semantics_status": "documented", "suno_prompt_effect_status": "provisional", "baseline_model": "v6", "variant_difference": "unverified", "source_ids": ["education.open-music-theory.notation", "education.yamaha.midi-arranging", "official.hub.create.2026-08"] }
+    },
+    {
+      "id": "strings.pizzicato-tremolo",
+      "kind": "technique",
+      "families": ["strings"],
+      "labels": { "en": ["pizzicato", "tremolo"], "ja": ["ピチカート", "トレモロ"] },
+      "music_semantics": { "meaning": "pizzicatoは弦をはじく短い音、tremoloは細かい反復による揺れ", "audible_effect": ["短い弾性音", "震える持続感"], "roles": ["texture", "expression"] },
+      "prompting": { "style_phrases": ["pizzicato strings, tremolo violin texture"], "lyrics_cues": [{ "text": "[pizzicato strings]", "status": "observed", "not_official_command": true }], "preferred_scope": "style_global_or_section_local" },
+      "evidence": { "music_semantics_status": "documented", "suno_prompt_effect_status": "provisional", "baseline_model": "v6", "variant_difference": "unverified", "source_ids": ["education.yamaha.midi-arranging", "official.hub.create.2026-08"] }
+    },
+    {
+      "id": "orchestration.glissando",
+      "kind": "technique",
+      "families": ["strings", "brass", "woodwinds", "synth", "voice"],
+      "labels": { "en": ["glissando", "slide"], "ja": ["グリッサンド", "スライド"] },
+      "music_semantics": { "meaning": "音高を連続的に滑らせる", "audible_effect": ["滑走感", "劇的な移行"], "roles": ["expression", "transition"] },
+      "prompting": { "style_phrases": ["synth glissando, expressive string slides"], "lyrics_cues": [{ "text": "[short glissando]", "status": "observed", "not_official_command": true }], "preferred_scope": "style_global_or_section_local" },
+      "evidence": { "music_semantics_status": "documented", "suno_prompt_effect_status": "provisional", "baseline_model": "v6", "variant_difference": "unverified", "source_ids": ["education.yamaha.instrument-guide", "official.hub.create.2026-08"] }
+    },
+    {
+      "id": "synth.pad-lead-pluck",
+      "kind": "instrument_role",
+      "families": ["synth", "electronic"],
+      "labels": { "en": ["synth pad", "synth lead", "synth pluck"], "ja": ["シンセパッド", "シンセリード", "プラック"] },
+      "music_semantics": { "meaning": "padは持続する背景、leadは前景旋律、pluckは短いアタックの音色役割", "audible_effect": ["背景の広がり", "前景の旋律", "短いアタック"], "roles": ["texture", "melody", "accent"] },
+      "prompting": { "style_phrases": ["wide analog pad, bright synth lead, percussive pluck"], "lyrics_cues": [], "preferred_scope": "style_global" },
+      "evidence": { "music_semantics_status": "documented", "suno_prompt_effect_status": "provisional", "baseline_model": "v6", "variant_difference": "unverified", "source_ids": ["education.berklee.arranging", "official.hub.create.2026-08"] }
+    },
+    {
+      "id": "rhythm.syncopation-swing",
+      "kind": "rhythmic_feel",
+      "families": ["rhythm", "drums", "bass", "guitar"],
+      "labels": { "en": ["syncopation", "swing", "swung eighths"], "ja": ["シンコペーション", "スウィング"] },
+      "music_semantics": { "meaning": "syncopationは強拍・弱拍の期待をずらし、swingは均等でない長短のフィールを作る", "audible_effect": ["前のめり", "跳ね", "揺れるグルーヴ"], "roles": ["groove", "expression"] },
+      "prompting": { "style_phrases": ["syncopated bass groove, offbeat guitar accents", "medium swing, swung eighth-note groove"], "lyrics_cues": [{ "text": "[syncopated groove]", "status": "observed", "not_official_command": true }], "preferred_scope": "style_global_or_section_local" },
+      "evidence": { "music_semantics_status": "documented", "suno_prompt_effect_status": "provisional", "baseline_model": "v6", "variant_difference": "unverified", "source_ids": ["education.open-music-theory.drumbeats", "education.open-music-theory.swing", "official.hub.create.2026-08"] }
+    },
+    {
+      "id": "production.sidechain-compression",
+      "kind": "production_technique",
+      "families": ["mixing", "electronic"],
+      "labels": { "en": ["sidechain compression", "ducking", "pumping"], "ja": ["サイドチェインコンプレッション", "ダッキング"] },
+      "music_semantics": { "meaning": "別の音をトリガーにして対象音量を押し下げ、キック連動等のポンピングを作る", "audible_effect": ["呼吸する低域", "脈動"], "roles": ["dynamics", "space"] },
+      "prompting": { "style_phrases": ["subtle sidechain pumping, kick-driven ducking"], "lyrics_cues": [], "preferred_scope": "style_global" },
+      "evidence": { "music_semantics_status": "documented", "suno_prompt_effect_status": "provisional", "baseline_model": "v6", "variant_difference": "unverified", "source_ids": ["education.berklee.sidechain", "education.ableton.sidechain", "official.hub.create.2026-08"] }
+    },
+    {
+      "id": "vocal.lead-backing-choir",
+      "kind": "vocal_role",
+      "families": ["voice", "arrangement"],
+      "labels": { "en": ["lead vocal", "backing vocal", "choir", "call and response"], "ja": ["リードボーカル", "バックボーカル", "コーラス", "コールアンドレスポンス"] },
+      "music_semantics": { "meaning": "主旋律、ハーモニー、応答、合唱を役割として分ける", "audible_effect": ["前景と背景の分離", "厚み", "応答感"], "roles": ["melody", "harmony", "arrangement"] },
+      "prompting": { "style_phrases": ["warm female lead vocal, layered chorus harmonies, call-and-response backing vocals"], "lyrics_cues": [{ "text": "(backing response)", "status": "observed", "not_official_command": true }], "preferred_scope": "style_global_or_lyrics_local" },
+      "evidence": { "music_semantics_status": "documented", "suno_prompt_effect_status": "provisional", "baseline_model": "v6", "variant_difference": "unverified", "source_ids": ["education.berklee.arranging", "official.help.gender", "official.hub.create.2026-08"] }
+    }
+  ]
+}

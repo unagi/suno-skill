@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "knowledge_version": "2026-09-12",
+  "target_models": ["v6", "v6-wild", "v6-mini"],
+  "baseline_model": "v6",
+  "rules": [
+    { "id": "prompt.include-exclude-conflict", "severity": "warning", "status": "documented_or_observed", "message": "StyleとExcludeに同じ要素があります。", "remediation": "includeかexcludeのどちらかへ整理し、不要なら語を削る。", "source_ids": ["official.release.notes", "community.reddit.v6.prompting.2026-09"] },
+    { "id": "prompt.multiple-tempo-values", "severity": "warning", "status": "deterministic", "message": "異なるBPM指定が複数あります。", "remediation": "BPMを1つに絞り、相反するtempo語を削る。", "source_ids": ["official.hub.create.2026-08"] },
+    { "id": "prompt.genre-overload", "severity": "warning", "status": "heuristic", "message": "ジャンル指定が多く、主役が曖昧になる可能性があります。", "remediation": "主ジャンル1つと補助ジャンル2〜3個までに整理する。", "source_ids": ["official.hub.create.2026-08", "community.reddit.v6.prompting.2026-09"] },
+    { "id": "prompt.abstract-style-only", "severity": "warning", "status": "heuristic", "message": "抽象的な形容詞に偏り、可聴な特徴が少ないStyleです。", "remediation": "楽器、奏法、リズム、声質、音像のいずれかを追加する。", "source_ids": ["official.hub.create.2026-08", "community.reddit.v6.prompting.2026-09"] },
+    { "id": "prompt.style-contains-lyrics-structure", "severity": "warning", "status": "documented_or_observed", "message": "StyleにLyrics構造タグがあります。", "remediation": "構造タグはLyricsへ移し、Styleは全体の音像に限定する。", "source_ids": ["official.hub.create.2026-08"] },
+    { "id": "prompt.negative-style-instruction", "severity": "warning", "status": "observed", "message": "Styleに否定形の指示があります。", "remediation": "可能ならStyle本文を肯定的な音楽特徴へ整理し、除外機能が使える画面では短いExclude Stylesへ分ける。否定文が必ず逆効果になるとは断定しない。", "source_ids": ["official.release.notes", "community.reddit.v6.prompting.2026-09"] },
+    { "id": "prompt.lyrics-contains-production-instruction", "severity": "warning", "status": "heuristic", "message": "Lyricsに長い制作・ミックス指示が混入している可能性があります。", "remediation": "全体指示はStyleへ、Lyricsには本文と短い局所cueだけを残す。", "source_ids": ["official.help.v45.lyrics", "official.hub.create.2026-08"] },
+    { "id": "prompt.unofficial-cue-overuse", "severity": "warning", "status": "observed", "message": "非公式cueが多すぎます。", "remediation": "公式資料で例示された基本構造へ戻し、cueを少数にする。", "source_ids": ["official.hub.create.2026-08", "community.reddit.v6.prompting.2026-09"] },
+    { "id": "prompt.wild-variety-adherence-risk", "severity": "warning", "status": "documented_or_observed", "message": "v6-wildの探索性と高いVarietyが、厳密なStyle遵守要求と衝突する可能性があります。", "remediation": "遵守優先ならv6またはVariety 0を試し、wildは探索用として扱う。", "source_ids": ["official.help.v6.whats-new", "official.help.v6.faq"] },
+    { "id": "prompt.variety-style-pinned", "severity": "warning", "status": "documented", "message": "Styleを固定したいのにVarietyが有効です。", "remediation": "Styleを保持したい場合はVariety 0を試す。", "source_ids": ["official.help.v6.faq"] },
+    { "id": "prompt.instrumental-lyrics-conflict", "severity": "warning", "status": "deterministic", "message": "Instrumental指定とLyrics本文が同時に存在します。", "remediation": "InstrumentalならLyricsを空にし、歌入りならInstrumentalを解除する。", "source_ids": ["official.hub.create.2026-08"] },
+    { "id": "prompt.long-form-without-max-mode", "severity": "warning", "status": "documented_or_observed", "message": "長尺・一貫性重視なのにMax Modeが指定されていません。", "remediation": "2分超、Cover、声・Styleの一貫性が重要ならMax Modeを検討する。", "source_ids": ["official.help.v6.faq"] }
+  ]
+}

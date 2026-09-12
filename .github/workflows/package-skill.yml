@@ -1,0 +1,45 @@
+name: Package Suno songwriting skill
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run tests
+        run: node --test suno-songwriting/tests/*.test.mjs
+
+      - name: Audit knowledge references
+        run: node suno-songwriting/scripts/audit_knowledge.mjs --as-of "$(date -u +%F)"
+
+      - name: Prepare skill package
+        run: |
+          set -euo pipefail
+          rm -rf dist
+          mkdir -p dist/package
+          cp -R suno-songwriting dist/package/suno-songwriting
+          test -f dist/package/suno-songwriting/SKILL.md
+
+      - name: Upload skill artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: suno-songwriting-skill
+          path: dist/package
+          if-no-files-found: error
+          retention-days: 90

@@ -6,9 +6,9 @@
     "publisher": "Suno",
     "source_type": "official_help",
     "published_at": "2026-09-09",
-    "accessed_at": "2026-09-12",
+    "accessed_at": "2026-09-14",
     "relevant_section": "v6 family and model availability",
-    "claim_summary": "Suno identifies v6 as the core model and distinguishes v6-wild and v6-mini; the article does not publish Style or Lyrics character caps.",
+    "claim_summary": "Suno identifies v6 as the core model, distinguishes v6-wild and v6-mini, and lists Extend, Cover, and Replace Section in the v6 Remix & Edit feature set; the article does not publish Style or Lyrics character caps.",
     "model_or_surface_scope": "v6, v6-wild, v6-mini; this Skill targets the v6 family and uses v6 as its baseline"
   },
   {
@@ -138,7 +138,7 @@
     "publisher": "Suno",
     "source_type": "official_help",
     "published_at": "2026-09-09",
-    "accessed_at": "2026-09-12",
+    "accessed_at": "2026-09-14",
     "relevant_section": "Prompting, Variety, Max Mode, and v6 behavior",
     "claim_summary": "Suno documents v6 prompt understanding and relevant creation controls including Variety and Max Mode; these controls do not guarantee a specific output.",
     "model_or_surface_scope": "v6 family; wild/mini-specific adherence differences remain unverified"
@@ -185,10 +185,10 @@
     "title": "How do I make my song longer?",
     "publisher": "Suno",
     "source_type": "official_help",
-    "published_at": null,
-    "accessed_at": "2026-09-12",
+    "published_at": "2025-12-19",
+    "accessed_at": "2026-09-14",
     "relevant_section": "Extend",
-    "claim_summary": "Suno documents extending a song with new lyrics and style direction.",
+    "claim_summary": "Suno documents choosing how much of the original track to retain and where to extend from, entering new Lyrics or Style details, then using Get Whole Song to stitch the new ending to the original track.",
     "model_or_surface_scope": "Extend; model scope not narrowly specified"
   },
   {
@@ -418,5 +418,77 @@
     "relevant_section": "Frequent Style vocabulary and genre examples",
     "claim_summary": "A community guide lists frequently used Suno Style vocabulary spanning Pop, Rock, Rap, Metal, Electronic, R&B, Country, Jazz, Funk, J-pop, K-pop, and related subgenres; it is not an official ranking or guarantee.",
     "model_or_surface_scope": "Community prompt vocabulary; model and date scope not controlled"
+  },
+  {
+    "source_id": "official.help.cover",
+    "url": "https://help.suno.com/en/articles/2872257",
+    "title": "What is a Cover?",
+    "publisher": "Suno",
+    "source_type": "official_help",
+    "published_at": "2024-09-27",
+    "accessed_at": "2026-09-14",
+    "relevant_section": "What is a Cover?",
+    "claim_summary": "Suno describes Cover as transforming the Style of a song while retaining its melody, and notes that the beta may require several attempts and produce mixed results.",
+    "model_or_surface_scope": "Cover help article; model scope is not narrowly specified"
+  },
+  {
+    "source_id": "official.help.voice",
+    "url": "https://help.suno.com/en/articles/11362369",
+    "title": "Voices: Use Your Voice in Suno",
+    "publisher": "Suno",
+    "source_type": "official_help",
+    "published_at": "2026-05-01",
+    "accessed_at": "2026-09-14",
+    "relevant_section": "Generate a Song with Your Voice",
+    "claim_summary": "Suno documents creating a verified personal Voice and selecting it in Create; it instructs the user to select the Voice model and use Audio Influence for generation.",
+    "model_or_surface_scope": "Voice profile and Create flow; model availability can change"
+  },
+  {
+    "source_id": "official.help.voice-faq",
+    "url": "https://help.suno.com/en/articles/11362433",
+    "title": "Voices FAQ",
+    "publisher": "Suno",
+    "source_type": "official_help",
+    "published_at": "2026-03-26",
+    "accessed_at": "2026-09-14",
+    "relevant_section": "Troubleshooting",
+    "claim_summary": "The FAQ says that New Voices require model v5.5 and that other models did not support that feature when the article was edited; this pre-v6 compatibility statement conflicts with applying the rule to current v6 and must not be extrapolated.",
+    "model_or_surface_scope": "New Voices FAQ, edited before v6; status conflict for current v6/UI availability"
+  },
+  {
+    "source_id": "official.help.replace-section",
+    "url": "https://help.suno.com/en/articles/3271873",
+    "title": "How do I replace a section of a song?",
+    "publisher": "Suno",
+    "source_type": "official_help",
+    "published_at": "2025-12-19",
+    "accessed_at": "2026-09-14",
+    "relevant_section": "Replace Section",
+    "claim_summary": "Suno documents selecting a section of an existing song, generating replacement candidates, and using Get Whole Song to create a new complete version with the selected replacement.",
+    "model_or_surface_scope": "Replace Section; individual help article is pre-v6 and does not document Cover/Voice re-anchoring"
+  },
+  {
+    "source_id": "official.help.studio-2",
+    "url": "https://help.suno.com/en/articles/13670529",
+    "title": "Introducing Suno Studio 2.0",
+    "publisher": "Suno",
+    "source_type": "official_help",
+    "published_at": "2026-08-13",
+    "accessed_at": "2026-09-14",
+    "relevant_section": "Advanced stems and editing existing songs",
+    "claim_summary": "Suno documents opening library songs in Studio, extracting timing-aligned stems into separate tracks, and independently editing, replacing, rebalancing, or processing those parts.",
+    "model_or_surface_scope": "Suno Studio 2.0; Premier availability is documented separately"
+  },
+  {
+    "source_id": "community.reddit.cover-voice-consistency.2026-04",
+    "url": "https://www.reddit.com/r/SunoAI/comments/1s9clqj/for_the_last_week_or_so_i_have_been_having_really/",
+    "title": "For the last week or so, i have been having really poor results with cover feature",
+    "publisher": "r/SunoAI",
+    "source_type": "community_reddit",
+    "published_at": "2026-04-01",
+    "accessed_at": "2026-09-14",
+    "relevant_section": "Reports on Cover with a Voice/Persona and melody/rhythm consistency",
+    "claim_summary": "Users report inconsistent melody, rhythm, and vocal results when using Cover with Voice/Persona; reports vary over time and are not a controlled test or a basis for causal claims.",
+    "model_or_surface_scope": "Community observation around V5/V5.5-era behavior; not a v6 guarantee"
   }
 ]

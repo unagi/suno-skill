@@ -1,11 +1,11 @@
 ---
 name: suno-songwriting
-description: Create, refine, and validate Suno Style and custom Lyrics inputs using source-aware guidance, structure tags, and deterministic character checks.
+description: Create, refine, and validate Suno Style and custom Lyrics inputs, and give evidence-bounded guidance on Cover, Voice, and Extend without proposing unsupported composition workflows.
 ---
 
 # Suno Songwriting
 
-Suno v6系（`v6`、`v6-wild`、`v6-mini`）のCustom/Create入力向けに、StyleとLyricsを作成・改善・検証するSkillです。専用ノウハウが少ないため、`v6`を知識の基準モデルとし、wild/miniでは差分未確認の暫定参考として継承します。一般的な作詞だけを依頼された場合は使わず、Sunoへ貼り付ける入力、Suno向けのタグ、またはSunoの入力上限が話題になったときに使います。
+Suno v6系（`v6`、`v6-wild`、`v6-mini`）のCustom/Create入力向けに、StyleとLyricsを作成・改善・検証するSkillです。専用ノウハウが少ないため、`v6`を知識の基準モデルとし、wild/miniでは差分未確認の暫定参考として継承します。Cover、Voice、Extend、Replace Sectionについては、公式に確認できる操作範囲と、維持を保証できない参照・構成制御を区別して相談に答えます。一般的な作詞だけを依頼された場合は使わず、Sunoへ貼り付ける入力、Suno向けのタグ、またはSunoの入力上限が話題になったときに使います。
 
 ## 使い分け
 
@@ -15,6 +15,7 @@ Suno v6系（`v6`、`v6-wild`、`v6-mini`）のCustom/Create入力向けに、St
 - Lyricsの権利、他人の歌詞、公開・収益化に関する確認が必要なときは、[references/policies.md](references/policies.md) を読む。
 - 楽器、奏法、音色、編曲語彙を意図へ変換するときは、[references/music-vocabulary.md](references/music-vocabulary.md) と [references/music-vocabulary.json](references/music-vocabulary.json) を読む。
 - Sunoが指示を守らない、意図と違う音になる、タグを無視する、といった相談では、[references/prompt-adherence.md](references/prompt-adherence.md) と [references/prompt-diagnostic-rules.json](references/prompt-diagnostic-rules.json) を読む。
+- Cover、Voice、Extend、Replace Section、Studioでメロディ・声・構成が維持されない相談では、まず [references/prompt-adherence.md](references/prompt-adherence.md) を読む。CoverとVoiceの初回生成での併用はこの案件の `user_confirmed` 条件、Studio内のステム編集は `documented` な操作として区別する。Cover参照を保つ再生成については、固定的に否定せず、現行公式情報を優先し、公式が不足するときは条件が一致するユーザー事例・コミュニティ観測を `observed` と明記して評価する。
 - 音域の不足・過多や音の薄さを相談されたが編成が不明なときは、[references/genre-arrangements.md](references/genre-arrangements.md) と [references/arrangement-diagnosis.md](references/arrangement-diagnosis.md) を読み、複数の編成仮説を提示してからStyleを確定する。未収載ジャンルや細分化されたジャンルは、近いジャンルで決め打ちせず、必要な範囲を調査する。
 - 既存Styleの改善・音像修正では、[references/style-change-policy.md](references/style-change-policy.md) と [references/style-tradeoffs.json](references/style-tradeoffs.json) を読む。Style全文がない状態で最終Styleを書き換えず、現在のStyleを基準に副作用と変更範囲を明示する。候補の最終化時は [references/quality-gate-runbook.md](references/quality-gate-runbook.md) を実行手順として使う。
 - 入力の機械的な可否判定は、意味解釈の知識ではなく付属の品質ゲートへ委ねる。タグの意味分類が必要なときだけ [references/tag-catalog.json](references/tag-catalog.json) を読む。
@@ -35,6 +36,7 @@ Suno v6系（`v6`、`v6-wild`、`v6-mini`）のCustom/Create入力向けに、St
 8. 音域や音の厚みの症状は、埋めればよい楽器が一意とは限らない。ジャンル、既存Style、Lyricsの局所cueから編成仮説を作り、ギター中心、ベース/ドラム中心、ボーカル/鍵盤中心、シンセ補強などを候補にする。ジャンルの一般論だけで楽器を追加せず、Style変更契約の維持条件を優先する。
 9. 保存済みの知識から主張を組み立て、公式文書・公式記事・教育資料・コミュニティ観測を混同しない。公式に確認できない内容は「暫定」「観測」「要確認」と表示する。1回の生成結果はそのセッションの観測として扱い、恒久的なルールへ一般化しない。
 10. 作成・修正後は、候補の最終化前に付属の品質ゲートを実行する。ゲートを実行できない場合は、候補を貼り付け可能・検証済みとして提示しない。上限や構文判定の根拠は、意味解釈の知識ではなくゲート側の実装と台帳で管理する。
+11. Cover/Voice/Extendの相談では、まず「Coverのメロディ表現」「Voice」「Style/Lyricsによる続きを作る」「既存音声をStudioで編集する」を分ける。CoverとVoiceの初回併用は `user_confirmed` な対象条件であり、一般仕様へ広げない。Cover結果をExtendできることと、Cover元のメロディ参照やVoice参照が延長区間でも再適用・維持されることを同一視しない。Replace Sectionや再生成を再アンカーとして案内するには、現行公式情報、または条件が一致する `observed` な事例を根拠として示す。
 
 品質ゲートの実行手順は [references/quality-gate-runbook.md](references/quality-gate-runbook.md) に分離する。
 
@@ -47,6 +49,7 @@ Suno v6系（`v6`、`v6-wild`、`v6-mini`）のCustom/Create入力向けに、St
 - 実在アーティスト名、曲名、存命作家の作風そのものを、Sunoが必ず再現する指示として扱わない。必要なら音楽的特徴へ言い換え、権利・規約の確認が必要な点を明記する。
 - 内容の安全性、著作権、模倣可否など意味判断はvalidatorの合否に委ねず、必要に応じて人手確認として報告する。
 - 生成音声のジャンル逸脱、声質、楽器の可聴性、BPM、歌詞完遂はテキスト診断で判定できない。`human_checks` として試聴項目にする。
+- Coverのメロディ保持、Voiceの同一性、Extend後の構成・声・参照の継続性は、公式の出力保証ではない。失敗を「参照が時間とともに弱くなる」という内部機構の事実として説明せず、当該生成の観測として記録する。
 
 ## 知識の更新
 
